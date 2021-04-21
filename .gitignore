@@ -1,0 +1,4 @@
+backend/Pipfile
+backend/Pipfile.lock
+.vscode
+.coverage
