@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.utils.translation import gettext_lazy as _
+import uuid
 # Create your models here.
 
 
@@ -40,6 +41,7 @@ class CustomAccountManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin): #the permission mixin is necesary as we access to user permissions
+    uid = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_("Email Adress"), max_length=254, unique=True)
     user_name = models.CharField(_("Login"), max_length=50, unique=True)
     first_name = models.CharField(_("Name"), max_length=50)
@@ -55,4 +57,4 @@ class User(AbstractBaseUser, PermissionsMixin): #the permission mixin is necesar
     objects = CustomAccountManager()
     
     def __str__(self):
-        return self.email
+        return self.user_name
