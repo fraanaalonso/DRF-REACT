@@ -20,7 +20,7 @@ class AccountViewSet(viewsets.ViewSet):
             data = {'ok': True, 'user': log_serializer.data, 'uid': user.uid, 'token': getToken( request.data, 'token')}
             return Response(data, status.HTTP_200_OK)
         data={'ok': False, 'msg': log_serializer.errors, }
-        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data)
     
     @action(detail=False, methods=['post'], name='Change Password', permission_classes = [IsAuthenticated])
     def password_change(self, request, *args, **kwargs):
