@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import { AccountCircle } from '@material-ui/icons'
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from '../../styles/components/stylesLogin';
+import { useStylesLogin } from '../../styles/components/stylesLogin';
 import { Copyrigth } from './Copyrigth';
 
 
@@ -19,7 +19,7 @@ import { Copyrigth } from './Copyrigth';
 
 
 export const LoginScreen = () => {
-  const classes = useStyles();
+  const classes = useStylesLogin();
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -76,8 +76,8 @@ export const LoginScreen = () => {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/auth/register" variant="body2">
+                  Create a new account
                 </Link>
               </Grid>
             </Grid>
