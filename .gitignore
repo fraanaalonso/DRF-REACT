@@ -2,7 +2,6 @@ backend/Pipfile
 backend/Pipfile.lock
 .vscode
 .coverage
-backend/.env
 backend/db.sqlite3
 
 
