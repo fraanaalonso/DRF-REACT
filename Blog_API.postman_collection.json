@@ -1,0 +1,897 @@
+{
+	"info": {
+		"_postman_id": "73156d99-2b02-4287-8b8b-7fa6a75c25eb",
+		"name": "Blog_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user3@gmail.com\",\r\n    \"first_name\": \"user3\",\r\n    \"password\": \"testpass123\",\r\n    \"user_name\": \"user3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/accounts/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"accounts",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"email\": \"admintest@email.com\",\r\n        \"password\": \"testpass123\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/accounts/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"accounts",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjQ4NzAzMiwianRpIjoiODJhOTU5ZjBmYzVmNDg3NWIxMmM1ZDcwYTliOTczMGQiLCJ1c2VyX2lkIjoiNWY4YmFkMzctNDRmZC00Yjk5LTg5ZTUtZDc5YzYxNDg3OTIzIn0.STWSmXqXOVZSf-A3gQzH7AERhOSSknDcEio7ng5ye6A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjUwODQxMCwianRpIjoiOTJmNDU0NzUxMzk1NDlmMTgzN2E0NmViYzU1ODJlMTkiLCJ1c2VyX2lkIjoiNWY4YmFkMzctNDRmZC00Yjk5LTg5ZTUtZDc5YzYxNDg3OTIzIn0.YN4lyYUCGCdV0rHQlRZu2TdgBWgS4aOL3YyI0qfTrl4\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer JWT",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzkxMTgxLCJqdGkiOiI0YmY4OTZjMjUxM2U0MzlhOGU1N2JiNmU5MTFiZGJjOCIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.LMdMu4lvE7LghahIRZDK2ZU4zYqbrXuZpqtLXnX9Qcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzkxMTgxLCJqdGkiOiI0YmY4OTZjMjUxM2U0MzlhOGU1N2JiNmU5MTFiZGJjOCIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.LMdMu4lvE7LghahIRZDK2ZU4zYqbrXuZpqtLXnX9Qcg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/accounts/logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"accounts",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "list_categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzI1NDc4LCJqdGkiOiI2ZWJlMWUxOTJlZDA0YTYxYjM0ZTIzZTgyOTljNzU5OCIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.tlVtLMC3gabVSvN5Vvk_yJ5Rb3lUf6n7_6wJMavdeCE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/categories_view/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"categories_view",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzI1NDc4LCJqdGkiOiI2ZWJlMWUxOTJlZDA0YTYxYjM0ZTIzZTgyOTljNzU5OCIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.tlVtLMC3gabVSvN5Vvk_yJ5Rb3lUf6n7_6wJMavdeCE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Criptomonedas\",\r\n    \"description\": \"This field is doing something quite interesting. The source argument controls which attribute is used to populate a field, and can point at any attribute on the serialized instance. It can also take the dotted notation shown above, in which case it will traverse the given attributes, in a similar way as it is used with Django's template language.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/categories_view/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"categories_view",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzIzMzMyLCJqdGkiOiJjZmU5NTdmNjQ2YTg0MzYzODY0NThmMjI4YWUzM2UwZiIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.MuDqzySJUw128g5gzIqE7A7U1YHJPzQJR4d8BHbemgI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bolsa11111\",\r\n    \"description\": \"Hola chicos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1-c94e-41be-9bde-874108043056/retrieve_category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1-c94e-41be-9bde-874108043056",
+								"retrieve_category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzI1NDc4LCJqdGkiOiI2ZWJlMWUxOTJlZDA0YTYxYjM0ZTIzZTgyOTljNzU5OCIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.tlVtLMC3gabVSvN5Vvk_yJ5Rb3lUf6n7_6wJMavdeCE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bolsa\",\r\n    \"description\": \"Hola chicos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/ad0a16a3-9976-4c6e-8a91-759140d1fac1/retrieve_category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"ad0a16a3-9976-4c6e-8a91-759140d1fac1",
+								"retrieve_category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzIzMzMyLCJqdGkiOiJjZmU5NTdmNjQ2YTg0MzYzODY0NThmMjI4YWUzM2UwZiIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.MuDqzySJUw128g5gzIqE7A7U1YHJPzQJR4d8BHbemgI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/cfa74aa7-c94e-41be-9bde-874108043056/retrieve_category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"cfa74aa7-c94e-41be-9bde-874108043056",
+								"retrieve_category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjYwNzQ5NSwianRpIjoiMmNhZWY0YzhmZjIyNDZhMDlhMTJiMDYyNDlkMjc2ODQiLCJ1c2VyX2lkIjoiNWY4YmFkMzctNDRmZC00Yjk5LTg5ZTUtZDc5YzYxNDg3OTIzIn0.nzWOA64531AWEfd8fPTUGcFL7hddwozDnjIfIMnbwdAU",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "list_post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5Nzk1NjA1LCJqdGkiOiI5NmI4MWI3MmY0ODE0MjBjYjVhNjkwZDY3NzQ2MjNlOSIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.EvJHjq3dQtYreptHPFbN6N8gcO8d9fAs4kcz11mFBCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/list_posts/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"list_posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5Nzk2MDUxLCJqdGkiOiJhMzcwYzQ5ZjMzMWE0ZjRiOTQ3MTBkMjI3MzUwYjg1NCIsInVzZXJfaWQiOiI4ZDRiMWE5Mi01N2Y3LTRlODMtYWFhNS04NWZhZGY2ZWNiOWUifQ.wY0P6hOXH3rGuI-WZdBHYrBkOv8OavkEMTetG0TmdTU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"El silencio de los truenos\",\r\n    \"body\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaa\",\r\n    \"author\": \"aff40a29-bb17-4a90-80e2-63bce7e5b8e2\",\r\n    \"category\": \"0e2352d4-b044-4127-a063-3110191fd22b\",\r\n    \"status\": \"draft\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/list_posts/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"list_posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5Nzk1NjA1LCJqdGkiOiI5NmI4MWI3MmY0ODE0MjBjYjVhNjkwZDY3NzQ2MjNlOSIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.EvJHjq3dQtYreptHPFbN6N8gcO8d9fAs4kcz11mFBCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"El silencio de los cerdos\",\r\n    \"body\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaa\",\r\n    \"author\": \"aff40a29-bb17-4a90-80e2-63bce7e5b8e2\",\r\n    \"category\": \"722c68db-6993-4b7e-a13c-12aefb8f51b8\",\r\n    \"status\": \"published\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/1bdc58c1-5b62-4d32-9ff8-94b835337e66/retrieve_post/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"1bdc58c1-5b62-4d32-9ff8-94b835337e66",
+								"retrieve_post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5Nzk2MDUxLCJqdGkiOiJhMzcwYzQ5ZjMzMWE0ZjRiOTQ3MTBkMjI3MzUwYjg1NCIsInVzZXJfaWQiOiI4ZDRiMWE5Mi01N2Y3LTRlODMtYWFhNS04NWZhZGY2ZWNiOWUifQ.wY0P6hOXH3rGuI-WZdBHYrBkOv8OavkEMTetG0TmdTU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/1bdc58c1-5b62-4d32-9ff8-94b835337e66/retrieve_post/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"1bdc58c1-5b62-4d32-9ff8-94b835337e66",
+								"retrieve_post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5Nzk1NjA1LCJqdGkiOiI5NmI4MWI3MmY0ODE0MjBjYjVhNjkwZDY3NzQ2MjNlOSIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.EvJHjq3dQtYreptHPFbN6N8gcO8d9fAs4kcz11mFBCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/1bdc58c1-5b62-4d32-9ff8-94b835337e66/retrieve_post/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"1bdc58c1-5b62-4d32-9ff8-94b835337e66",
+								"retrieve_post",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjYwNzQ5NSwianRpIjoiMmNhZWY0YzhmZjIyNDZhMDlhMTJiMDYyNDlkMjc2ODQiLCJ1c2VyX2lkIjoiNWY4YmFkMzctNDRmZC00Yjk5LTg5ZTUtZDc5YzYxNDg3OTIzIn0.nzWOA64531AWEfd8fPTUGcFL7hddwozDnjIfIMnbwdAU",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "list_comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzgxMDAzLCJqdGkiOiIyMzY2MDg5ZDgyNGY0MDdkYjFkMjllZTJjNmM4NGIwYyIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.O5ouAhj1snt90cfkrO9c_ycui9q732Ms0NDNmtSLIzE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/comments_view/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"comments_view",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzgxMDAzLCJqdGkiOiIyMzY2MDg5ZDgyNGY0MDdkYjFkMjllZTJjNmM4NGIwYyIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.O5ouAhj1snt90cfkrO9c_ycui9q732Ms0NDNmtSLIzE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Extensions\",\r\n    \"body\": \"Sometimes you need to set custom QuerySet for detail view. For example, in detail view you want to show user groups and permissions for these groups. You can make it by specifying queryset_detail attribute:\",\r\n    \"author\": \"4f457f06-7be9-4878-a28d-3c3d0d574a61\",\r\n    \"post\": \"7bef5257-ea7e-4fd3-8cab-e2b0a6c1bd7f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/comments_view/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"comments_view",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzgxMDAzLCJqdGkiOiIyMzY2MDg5ZDgyNGY0MDdkYjFkMjllZTJjNmM4NGIwYyIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.O5ouAhj1snt90cfkrO9c_ycui9q732Ms0NDNmtSLIzE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Professional\",\r\n    \"body\": \"Sometimes you need to set custom QuerySet for detail view. For example, in detail view you want to show user groups and permissions for these groups. You can make it by specifying queryset_detail attribute:\",\r\n    \"author\": \"4f457f06-7be9-4878-a28d-3c3d0d574a61\",\r\n    \"post\": \"7bef5257-ea7e-4fd3-8cab-e2b0a6c1bd7f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/baf977e0-8ed6-4526-a355-1ad50e0b37ce/retrieve_comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"baf977e0-8ed6-4526-a355-1ad50e0b37ce",
+								"retrieve_comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzgxMDAzLCJqdGkiOiIyMzY2MDg5ZDgyNGY0MDdkYjFkMjllZTJjNmM4NGIwYyIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.O5ouAhj1snt90cfkrO9c_ycui9q732Ms0NDNmtSLIzE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/baf977e0-8ed6-4526-a355-1ad50e0b37ce/retrieve_comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"baf977e0-8ed6-4526-a355-1ad50e0b37ce",
+								"retrieve_comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjE5NzgxMDAzLCJqdGkiOiIyMzY2MDg5ZDgyNGY0MDdkYjFkMjllZTJjNmM4NGIwYyIsInVzZXJfaWQiOiI0ZjQ1N2YwNi03YmU5LTQ4NzgtYTI4ZC0zYzNkMGQ1NzRhNjEifQ.O5ouAhj1snt90cfkrO9c_ycui9q732Ms0NDNmtSLIzE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/baf977e0-8ed6-4526-a355-1ad50e0b37ce/retrieve_comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"baf977e0-8ed6-4526-a355-1ad50e0b37ce",
+								"retrieve_comments",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYxNjYwNzQ5NSwianRpIjoiMmNhZWY0YzhmZjIyNDZhMDlhMTJiMDYyNDlkMjc2ODQiLCJ1c2VyX2lkIjoiNWY4YmFkMzctNDRmZC00Yjk5LTg5ZTUtZDc5YzYxNDg3OTIzIn0.nzWOA64531AWEfd8fPTUGcFL7hddwozDnjIfIMnbwdAU",
+						"type": "string"
+					}
+				]
+			}
+		}
+	]
+}
