@@ -13,10 +13,26 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { Copyrigth } from './Copyrigth';
 import { useStylesRegister } from '../../styles/components/stylesLogin';
+import { useForm } from '../../hooks/useForm';
 
 
 export const RegisterScreen = () => {
   const classes = useStylesRegister();
+
+  const { values, handleInputChange} = useForm({
+    username:'',
+    firstname: '',
+    email:'',
+    password: '',
+    password_conf: '',
+  });
+
+  const { firstname, username, email, password, password_conf } = values;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ username, firstname, email, password, password_conf})
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -28,18 +44,19 @@ export const RegisterScreen = () => {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={ handleSubmit } className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
+                id="firstname"
                 label="First Name"
-                autoFocus
+                name="firstname"
+                autoComplete="lname"
+                value={firstname}
+                onChange={ handleInputChange }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -47,10 +64,12 @@ export const RegisterScreen = () => {
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
+                id="username"
+                label="User Name"
+                name="username"
                 autoComplete="lname"
+                value={username}
+                onChange={ handleInputChange }
               />
             </Grid>
             <Grid item xs={12}>
@@ -62,6 +81,8 @@ export const RegisterScreen = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={email}
+                onChange={ handleInputChange }
               />
             </Grid>
             <Grid item xs={12}>
@@ -69,11 +90,26 @@ export const RegisterScreen = () => {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
                 id="password"
+                label="Password"
+                name="password"
+                value={password}
+                onChange={ handleInputChange }
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password_conf"
+                label="Password Confirmation"
+                type="password"
+                id="password2"
                 autoComplete="current-password"
+                value={password_conf}
+                onChange={ handleInputChange }
               />
             </Grid>
             <Grid item xs={12}>
@@ -94,7 +130,7 @@ export const RegisterScreen = () => {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link to="/auth/login" variant="body2">
+              <Link href="/auth/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

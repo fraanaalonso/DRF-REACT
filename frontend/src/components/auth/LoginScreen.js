@@ -13,13 +13,26 @@ import { AccountCircle } from '@material-ui/icons'
 import Typography from '@material-ui/core/Typography';
 import { useStylesLogin } from '../../styles/components/stylesLogin';
 import { Copyrigth } from './Copyrigth';
-
-
+import { useForm } from '../../hooks/useForm';
+import { useDispatch } from 'react-redux';
+import { startLogin } from '../../actions/auth';
 
 
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch()
   const classes = useStylesLogin();
+  const { values, handleInputChange} = useForm({
+    email:'',
+    password: '',
+  });
+
+  const { email, password } = values;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(startLogin(email, password));
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -33,7 +46,7 @@ export const LoginScreen = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={ handleSubmit } className={classes.form} noValidate >
             <TextField
               variant="outlined"
               margin="normal"
@@ -41,20 +54,24 @@ export const LoginScreen = () => {
               fullWidth
               id="email"
               label="Email Address"
-              name="email"
+              name='email'
               autoComplete="email"
               autoFocus
+              value={ email }
+              onChange={ handleInputChange }
             />
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
+              name='password'
               label="Password"
               type="password"
               id="password"
+              value={ password }
               autoComplete="current-password"
+              onChange={ handleInputChange }
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
