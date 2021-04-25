@@ -32,3 +32,17 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    uid = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(_("Title"), max_length=150)
+    body = models.TextField()
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_comment', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, verbose_name=_("Post"), on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+        

@@ -8,6 +8,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework import status
 from .token import getToken
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views here.
 
 class AccountViewSet(viewsets.ViewSet):
@@ -57,7 +58,18 @@ class AccountViewSet(viewsets.ViewSet):
                 data={'ok': False, 'msg': 'Email does not exist'}
                 return Response(data, status.HTTP_400_BAD_REQUEST)
         data={'ok': False, 'msg': sendEmail_serializer.errors, }    
-        return Response(data, status.HTTP_400_BAD_REQUEST) 
+        return Response(data, status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['post'], permission_classes = [IsAuthenticated], name='LogOut')
+    def logout(self, request):
+        try:
+            r_token = request.data["refresh"]
+            token = RefreshToken(r_token)
+            token.blacklist()
+            data= {'ok': True, 'msg': 'Successful Logout'}
+        except:
+            return Response({'ok': False, 'msg': 'Could not logout'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data, status=status.HTTP_200_OK)
     
  
         

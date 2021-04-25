@@ -9,6 +9,7 @@ router = SimpleRouter()
 
 router.register('posts', PostViewSet, basename='posts')
 router.register('categories', CategoryViewSet, basename='categories')
+router.register('comments', CommentViewSet, basename='comments')
 
 urlpatterns = router.urls
 
