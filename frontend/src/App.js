@@ -1,9 +1,7 @@
 import React from 'react'
-
+import { LoginScreen } from './components/auth/LoginScreen'
 export const App = () => {
   return (
-    <div>
-      <title>Blog Init</title>
-    </div>
+    <LoginScreen />
   )
 }
