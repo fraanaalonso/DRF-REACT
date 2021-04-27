@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { blogAPI } from '../api/blogAPI'
-import { login, checkingFinish, notAuthenticated } from './types_actions';
+import { login, checkingFinish, logout } from './types_actions';
 
 export const startLogin = (email, password) => {
     return async(dispatch) => {
@@ -11,7 +11,6 @@ export const startLogin = (email, password) => {
             await blogAPI.post('token/', {email, password}),
         ])
         .then((respAA) => {
-            console.log( respAA [0])
             localStorage.setItem('access', respAA[1].data.access);
             localStorage.setItem('refresh', respAA[1].data.refresh);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -58,24 +57,39 @@ export const startRegister = (email, password, first_name, user_name) => {
 }
 
 
-export const startChecking = (uid, email) => {
-    return async(dispatch) => {
+export const startChecking = () => {
+    return async(dispatch, getState) => {
         const token = localStorage.getItem('refresh');
-        
-        if( !token ) return dispatch(notAuthenticated());
-
+        const {uid, email} = getState().auth;
         const resp = await blogAPI.post('token/refresh/', {refresh: token});
 
+        
         if( resp.status !== 200){
-            return dispatch(notAuthenticated())
+            return dispatch(logout())
         }
 
-        await localStorage.setItem('access', resp.data.access);
-        await localStorage.setItem('refresh', resp.data.refresh);
+        if(token){
+            localStorage.setItem('access', resp.data.access);
+            localStorage.setItem('refresh', resp.data.refresh);
+            localStorage.setItem('token-init-date', new Date().getTime() );
 
-        dispatch(login({
-            uid,
-            email
-        }))
+            dispatch(login({
+                uid: uid,
+                email: email
+            }))
+        }
+        else{
+            dispatch(checkingFinish());
+        }
+
+        
+
+    }
+}
+
+export const startLogout = () =>{
+    return async(dispatch) => {
+        localStorage.clear();
+        dispatch(logout());
     }
 }

@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 import { startChecking } from "../actions/auth";
-import { DashBoardScreen } from "../components/DashBoardScreen";
+import { DashboardScreen } from "../components/dashboard/DashBoardScreen";
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
@@ -14,17 +14,25 @@ import { PublicRoute } from "./PublicRoute";
 export const AppRouter = () => {
 
   const dispatch = useDispatch();
-  const { status, uid, email } = useSelector(state => state.auth)
+  const { checking, uid } = useSelector(state => state.auth);
+
+  useEffect(() => {
+    dispatch(startChecking());
+  }, [dispatch]);
+
+
   
-  
+  if(checking){
+    return <h5>Wait...</h5>
+  }
 
   return (
     <Router>
         <div>
         <Switch>
                 <PublicRoute path="/auth" component={AuthRouter} isLoggedIn={!!uid}/>
-                <PrivateRoute exact path='/' component={DashBoardScreen} isLoggedIn={!!uid} />
-                <Redirect to="/auth/login" />
+                <PrivateRoute exact path='/' component={DashboardScreen} isLoggedIn={!!uid} />
+                <Redirect to="/" />
         </Switch>
         </div>
     </Router>

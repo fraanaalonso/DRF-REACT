@@ -1,13 +1,8 @@
 import { types } from "../types/types";
 
-const status = {
-    checking: 'checking',
-    auth: 'authenticated',
-    notAuth: 'not-authenticated',
-}
 
 const intialState = {
-    status: status.checking,
+    checking: true,
     uid: null,
     email: null
 
@@ -19,17 +14,17 @@ export const authReducer = (state=intialState, action) => {
         case types.login:
             return {
                 ...state,
-                status: 'authenticated',
+                checking: false,
                 ...action.payload
             }
         case types.logout:
             return {
-                status: 'not-authenticated'
+                checking: false
             }
-        case types.notAuthenticated:
+        case types.authCheckingFinish:
             return {
                 ...state,
-                status: 'not-authenticated'
+                checking: false
             }
         default:
             return state;

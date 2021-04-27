@@ -5,6 +5,11 @@ export const login = ( user ) => ({
     payload: user
 })
 
-export const notAuthenticated = () => ({
-    type: types.notAuthenticated
+export const checkingFinish = () => ({
+    type: types.authCheckingFinish
 })
+
+export const logout = () => ({
+    type: types.logout
+})
+

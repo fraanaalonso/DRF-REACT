@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const DashBoardScreen = () => {
+export const PostsScreen = () => {
     return (
         <div>
-            DashBoardScreen
+            Posts
         </div>
     )
 }
