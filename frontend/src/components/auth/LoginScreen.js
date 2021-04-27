@@ -23,8 +23,8 @@ export const LoginScreen = () => {
   const dispatch = useDispatch()
   const classes = useStylesLogin();
   const { values, handleInputChange} = useForm({
-    email:'',
-    password: '',
+    email:'fraloal97@email.com',
+    password: 'testpass123',
   });
 
   const { email, password } = values;

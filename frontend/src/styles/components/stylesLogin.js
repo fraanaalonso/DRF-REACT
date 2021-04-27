@@ -6,7 +6,7 @@ export const useStylesLogin = makeStyles((theme) => ({
       height: '100vh',
     },
     image: {
-      backgroundImage: 'url(https://velvetescape.com/wp-content/uploads/2019/11/IMG-3700-1-1280x920.jpg)',
+      backgroundImage: 'url(https://variety.com/wp-content/uploads/2017/12/media-stocks-wall-street-placeholder.jpg)',
       backgroundRepeat: 'no-repeat',
       backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
       backgroundSize: 'cover',

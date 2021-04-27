@@ -8,6 +8,6 @@ export const App = () => {
   return (
     <Provider store={ store }>
       <AppRouter />
-  </Provider>
+    </Provider>
   )
 }

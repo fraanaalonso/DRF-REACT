@@ -14,10 +14,14 @@ import Container from '@material-ui/core/Container';
 import { Copyrigth } from './Copyrigth';
 import { useStylesRegister } from '../../styles/components/stylesLogin';
 import { useForm } from '../../hooks/useForm';
-
+import { useDispatch } from 'react-redux';
+import { startRegister } from '../../actions/auth';
+import Swal from 'sweetalert2';
+import validator from 'validator'
 
 export const RegisterScreen = () => {
   const classes = useStylesRegister();
+  const dispatch = useDispatch()
 
   const { values, handleInputChange} = useForm({
     username:'',
@@ -31,7 +35,22 @@ export const RegisterScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ username, firstname, email, password, password_conf})
+
+    if(!validator.isEmail( email ) ){
+      Swal.fire('Error', 'Email format is not correct', 'error');
+      return;
+    }
+
+    if(validator.isEmpty( email ) || validator.isEmpty( username ) || validator.isEmpty( firstname ) || validator.isEmpty( password ) || validator.isEmpty( password_conf )){
+      Swal.fire('Error', 'There are empy fields','error');
+      return;
+    }
+
+    if( password !== password_conf){
+      Swal.fire('Error', 'Passwords do not match', 'error');
+      return;
+    }
+    dispatch(startRegister(email, password, firstname, username));
   }
 
   return (
@@ -91,6 +110,7 @@ export const RegisterScreen = () => {
                 required
                 fullWidth
                 id="password"
+                type='password'
                 label="Password"
                 name="password"
                 value={password}

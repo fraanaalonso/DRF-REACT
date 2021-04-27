@@ -6,7 +6,6 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import status
-from .token import getToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 # Create your views here.
@@ -17,7 +16,7 @@ class AccountViewSet(viewsets.ViewSet):
         log_serializer = LoginSerializer(data=request.data)
         if log_serializer.is_valid():
             user = get_user_model().objects.get(email=request.data['email'])
-            data = {'ok': True, 'user': log_serializer.data, 'uid': user.uid, 'token': getToken( request.data, 'token')}
+            data = {'ok': True, 'user': log_serializer.data, 'uid': user.uid}
             return Response(data, status.HTTP_200_OK)
         data={'ok': False, 'msg': log_serializer.errors, }
         return Response(data)
@@ -70,7 +69,7 @@ class AccountViewSet(viewsets.ViewSet):
         except:
             return Response({'ok': False, 'msg': 'Could not logout'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(data, status=status.HTTP_200_OK)
-    
+
  
         
 
