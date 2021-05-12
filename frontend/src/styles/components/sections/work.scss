@@ -1,0 +1,29 @@
+section#work{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    background-color: $tertiary-color;
+
+}
+
+div.work__card{
+    padding: 2rem;
+    flex-basis: 40rem;
+    flex-grow: 1;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+div.work__card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    transition: filter 0.45s ease;
+}
+
+
+div.work__card img:hover,
+div.work__card  img:active{
+    filter: sepia(80%);
+}

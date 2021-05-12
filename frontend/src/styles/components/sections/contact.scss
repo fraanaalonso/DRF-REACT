@@ -1,0 +1,47 @@
+section#contact{
+    height: 100vh;
+    background-image: url('../../../assets/perfil.jpg');
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    object-fit: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.contact__form{
+    flex-basis: 40rem;
+    display: flex;
+    flex-direction: column;
+    background-color: $tertiary-color;
+    margin: 2rem 2rem;
+    opacity: 0.8;
+}
+
+
+.contact__form input,
+.contact__form textarea{
+    color: white;
+    font-family: cursive;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    padding: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: $secondary-color solid 0.1rem;
+}
+
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder{
+    color: white;
+}
+
+.contact__form textarea{
+    height: 30vh;
+}
+
+input[type='submit']{
+    border: none;
+    cursor: pointer;
+}

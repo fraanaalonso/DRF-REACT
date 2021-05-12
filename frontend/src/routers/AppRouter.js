@@ -21,18 +21,12 @@ export const AppRouter = () => {
   }, [dispatch]);
 
 
-  
-  if(checking){
-    return <h5>Wait...</h5>
-  }
-
   return (
     <Router>
         <div>
         <Switch>
-                <PublicRoute path="/auth" component={AuthRouter} isLoggedIn={!!uid}/>
-                <PrivateRoute exact path='/' component={DashboardScreen} isLoggedIn={!!uid} />
-                <Redirect to="/" />
+                <PublicRoute path="/" component={AuthRouter} isLoggedIn={!!uid}/>
+                <Redirect to="/index" />
         </Switch>
         </div>
     </Router>

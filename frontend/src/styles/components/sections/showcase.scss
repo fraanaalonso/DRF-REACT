@@ -1,0 +1,86 @@
+section#showcase{
+    height: 100vh;
+    background-image: url('../../../assets/perfil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+div.showcase__content{
+    background-color: $secondary-color;
+    padding: calc(1rem + 2vw);
+    height: calc(5rem + 20vmax);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0.8;
+    animation: card 2s cubic-bezier(0.68, -0.55, 0.25, 1.55);
+
+}
+
+@keyframes card{
+    0%{
+        transform: translateX(100rem) rotate(360deg); /*aqui empieza*/
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 0.9;
+    }
+}
+
+.showcase__content--title{
+    font-size: calc(2rem + 3vw);
+    color: white;
+}
+
+.showcase__content--para{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: calc(1.5rem + 1vw);
+    color: white;
+}
+
+
+.showcase__content--link:link,
+.showcase__content--link:visited{
+    padding: 1rem 0;
+    transition: all 0.5s ease-in-out;
+    width: 9rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+.showcase__content--link:link::after,
+.showcase__content--link:visited::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $primary-color;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s;
+
+    z-index: -1;
+}
+
+.showcase__content--link:hover::after,
+.showcase__content--link:active::after{
+    transform: scale(1);
+    transform-origin: left;
+}

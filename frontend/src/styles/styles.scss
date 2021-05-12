@@ -1,0 +1,16 @@
+@import './base/base.scss';
+@import './base/settings.scss';
+
+
+//Components
+
+
+@import './components/sections/about.scss';
+@import './components/sections/contact.scss';
+@import './components/sections/header.scss';
+@import './components/sections/services.scss';
+@import './components/sections/showcase.scss';
+@import './components/sections/sidenav.scss';
+@import './components/sections/skills.scss';
+@import './components/sections/work.scss';
+@import './base/responsiveness.scss';

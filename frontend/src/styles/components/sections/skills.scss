@@ -1,0 +1,177 @@
+section#skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: calc(1rem + 2vw);
+    background-color: $tertiary-color;
+}
+
+div.skills__design, div.skills__coding{
+    padding: calc(1rem + 2vw);
+    text-transform: uppercase;
+    flex-basis: 40rem;
+    flex-grow: 1;
+
+}
+
+.skills__design h4,
+.skills__coding h4{
+    font-size: 2rem;
+    color: white;
+}
+.skills__design--title, .skills__coding--title{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.skills__coding--progress, .skills__design--progress{
+    position: relative;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 3rem;
+    background-color: $primary-color;
+    width: 100%;
+    height: 2.8rem;
+    margin-bottom: 2rem;
+}
+
+.skills__coding--progress span, .skills__design--progress span{
+    position: relative;
+    display: inline-block;
+    vertical-align: center;
+    height: 2rem;
+    background-color: $secondary-color;
+    border-radius: 1rem 0 0 1rem;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+}
+
+.skills__design--progess__1{
+    animation: design-1 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes design-1{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 80%;
+    }
+}
+
+.skills__design--progess__2{
+    animation: design-2 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes design-2{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 60%;
+    }
+}
+
+
+.skills__design--progess__3{
+    animation: design-3 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes design-3{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 100%;
+    }
+}
+
+
+.skills__design--progess__4{
+    animation: design-4 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes design-4{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 50%;
+    }
+}
+
+
+
+
+.skills__coding--progess__1{
+    animation: coding-1 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes coding-1{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 80%;
+    }
+}
+
+.skills__coding--progess__2{
+    animation: coding-2 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes coding-2{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 60%;
+    }
+}
+
+
+.skills__coding--progess__3{
+    animation: coding-3 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes coding-3{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 100%;
+    }
+}
+
+
+.skills__coding--progess__4{
+    animation: coding-4 4s infinite cubic-bezier(1, 0, 0, 1);
+
+}
+
+@keyframes coding-4{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 50%;
+    }
+}
