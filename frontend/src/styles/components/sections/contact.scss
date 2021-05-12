@@ -41,7 +41,11 @@ section#contact{
     height: 30vh;
 }
 
-input[type='submit']{
+input[type=submit]{
     border: none;
     cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: $secondary-color-modified;
 }

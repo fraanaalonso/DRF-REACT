@@ -7,7 +7,7 @@ export const ShowCase = () => {
                 <h1 className="showcase__content--title">
                     Fran Alonso
                 </h1>
-                <p className="showcase__content--para">Full Stack Engineer</p>
+                <p className="showcase__content--para">Full Stack Engineer & Youtube Content Creator</p>
                 <a className="showcase__content--link">
                 My Work
                 </a>

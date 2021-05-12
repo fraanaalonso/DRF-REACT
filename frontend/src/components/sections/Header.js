@@ -23,12 +23,12 @@ export const Header = () => {
 
                 <ul className="header__main-nav--links">
 
-                    <li><a>Home</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Projects</a></li>
-                    <li><a>Services</a></li>
-                    <li><a>Hire Me</a></li>
-                    <li><a>Contact</a></li>
+                    <li><a href='#header'>Home</a></li>
+                    <li><a href='#work'>Projects</a></li>
+                    <li><a href='#about'>About</a></li>
+                    <li><a href='#services'>Services</a></li>
+                    <li><a href='#skills'>Skills</a></li>
+                    <li><a href='#contact'>Contact</a></li>
 
                 </ul>
             </nav>

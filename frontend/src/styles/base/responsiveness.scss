@@ -43,7 +43,7 @@
     }
 
     .clicked{
-        left: 55%;
+        left: 45%;
     }
 
     .line{
@@ -58,11 +58,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 20rem;
+        
     }
 
     ul.header__main-nav--links li{
         margin-bottom: 4vh;
-        margin-left: 6vw;
+        
     }
 
     .clicked .line-1{
@@ -113,6 +115,10 @@
         background-position: 80%;
     }
 
+    div.showcase__content{
+        max-width: 20rem;
+        height: 40rem;
+    }
 
     /**********Skills*************************/
     section#services{

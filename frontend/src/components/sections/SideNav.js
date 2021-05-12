@@ -9,11 +9,12 @@ export const SideNav = () => {
                     </div>
 
                     <ul className="side-nav__content--social">
-                        <a><i className="fab fa-facebook-f"></i></a>
-                        <a><i className="fab fa-twitter"></i></a>
-                        <a><i className="fab fa-linkedin-in"></i></a>
-                        <a><i className="fab fa-instagram"></i></a>
-                        <a><i className="fab fa-youtube"></i></a>
+                        <a href='https://www.facebook.com/Fran-Alonso-110594836979402'><i className="fab fa-facebook-f"></i></a>
+                        <a href='https://twitter.com/alonso_f09'><i className="fab fa-twitter"></i></a>
+                        <a href='https://www.linkedin.com/feed/'><i className="fab fa-linkedin-in"></i></a>
+                        <a href='https://www.instagram.com/fraanaalonso/'><i className="fab fa-instagram"></i></a>
+                        <a href='https://www.youtube.com/channel/UC_eAmK6Y_hrxijp0jhGc6Jg'><i className="fab fa-youtube"></i></a>
+                        <a href='https://www.github.com/fraanaalonso'><i className="fab fa-github"></i></a>
                     </ul>
                 </div>
         </aside>
