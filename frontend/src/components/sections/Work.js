@@ -6,27 +6,7 @@ export const Work = () => {
             <div className="work__card">
                 <img src={ logo } width={400} alt="Logo" />
             </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
-            <div className="work__card">
-                <img src={ logo } width={400} alt="Logo" />
-            </div>
+           
         </section>  
     )
 }

@@ -15,6 +15,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 from environs import Env
+
+
 env = Env()
 env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'api',
     'posts.apps.PostsConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 
 MIDDLEWARE = [

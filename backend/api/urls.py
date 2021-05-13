@@ -10,6 +10,7 @@ urlpatterns = [
     path('auth/', include('accounts.urls', namespace='accounts')),
     path('', include('posts.urls', namespace='posts')),
     
+    path('portfolio/', include('portfolio.urls', namespace='portfolio')),
     
     #token
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -1,4 +1,5 @@
 import React from 'react'
+import { PostsScreen } from '../posts/PostsScreen';
 
 export const Header = () => {
 
@@ -29,6 +30,7 @@ export const Header = () => {
                     <li><a href='#services'>Services</a></li>
                     <li><a href='#skills'>Skills</a></li>
                     <li><a href='#contact'>Contact</a></li>
+                    <li><a onClick={ PostsScreen }>Blog</a></li>
 
                 </ul>
             </nav>
