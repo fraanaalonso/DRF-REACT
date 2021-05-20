@@ -1,56 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { skillLoad } from '../../actions/skill';
 
 export const Skills = () => {
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(skillLoad());
+    }, [dispatch]);
+
+    const {skills} = useSelector(state => state.skill);
     return (
         <section id="skills">
         
             <div className="skills__coding">
                 <h3 className="skills__coding--title">Skills</h3>
-                <h4>Python</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__1">
-                    
-                    </span>
-                </div>
-                <h4>Django & Django Rest Framework</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__2">
-                    
-                    </span>
-                </div>
-                <h4>JavaScript</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__3">
-                    
-                    </span>
-                </div>
-                <h4>React & React Native</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__4">
-                    
-                    </span>
-                </div>
-                <h4>HTML & SCSS</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__5">
-                    
-                    </span>
-                </div>
 
-                <h4>Docker</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__6">
-                    
-                    </span>
-                </div>
-
-                <h4>Git & GitHub</h4>
-                <div className="skills__coding--progress">
-                    <span className="skills__coding--progess__7">
-                    
-                    </span>
-                </div>
+                {
+                    skills.map( (skill, i) => (
+                        <div key={skill.uid}>
+                            <h4>{ skill.name }</h4>
+                            <div className="skills__coding--progress">
+                                <span className={`skills__coding--progess__${i + 1}`} style={{ width: '80%'}}>
+                                
+                                </span>
+                            </div>
+                        </div>
+                        
+                    ))
+                }
+                
+                
             </div>
         </section>
     )
 }
+
+

@@ -13,3 +13,13 @@ export const logout = () => ({
     type: types.logout
 })
 
+export const getSkills = (skills) => ({
+    type: types.skillLoaded,
+    payload: skills
+}) 
+
+export const getProjects = (projects) => ({
+    type: types.projectLoaded,
+    payload: projects
+})
+
